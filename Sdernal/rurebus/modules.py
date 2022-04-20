@@ -44,6 +44,7 @@ class NerTagger:
             for idx, _ in zip(tag_idxs, range(length)):
                 tags.append(idx2label[idx])
             all_tags.append(tags)
+
         return all_tags
 
     def train(self):

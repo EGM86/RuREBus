@@ -16,13 +16,13 @@ from rurebus.readers import BertReader
 from rurebus.samplers import WholeSampler, PartialSampler
 from rurebus.trainer import RelTrainer
 
-device = torch.device('cuda')
+device = torch.device('cpu')
 # creating tokenizer from vocab downloaded from huggingface
-tokenizer = BertWordPieceTokenizer('multi_cased/vocab.txt')
+tokenizer = BertWordPieceTokenizer('Sdernal/multi_cased/vocab.txt')
 reader = BertReader(tokenizer, 'debug.txt', max_sent_len=100)
 
-test_folder = 'data/test_ner_only'
-documents = reader.read_folder('data/train')
+test_folder = 'Sdernal/data/test_1'
+documents = reader.read_folder('Sdernal/data/train_1')
 test_docs = reader.read_folder(test_folder)
 
 train_docs = []
@@ -46,7 +46,7 @@ model = RBert(bert, indexer)
 module = RelClassifier(indexer.rel_vocab, model)
 model.to(device)
 
-results_folder = './results/R_BERT'
+results_folder = 'Sdernal/results/R_BERT'
 if not exists(results_folder):
     os.mkdir(results_folder)
 

@@ -1,5 +1,5 @@
 from typing import List, Set, Tuple, Pattern
-from allennlp.data.dataset_readers.dataset_utils.ontonotes import TypedStringSpan
+from allennlp.data.dataset_readers.dataset_utils.span_utils import TypedStringSpan
 import re
 
 NER_TAG_REGEX = re.compile(r'(?P<span_tag>[SBIE])-(?P<entity>\w+)')

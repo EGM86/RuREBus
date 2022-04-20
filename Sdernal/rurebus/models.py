@@ -112,7 +112,7 @@ class BertEncoder(nn.Module):
         mask = (tokens != 0).to(torch.long)
         bert_output = self.bert(tokens, attention_mask=mask)
 
-        z = bert_output[0]
+        z = bert_output[0][0]
         out = self.classifier(z)
         return out
 

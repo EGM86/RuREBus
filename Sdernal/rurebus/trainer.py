@@ -94,7 +94,7 @@ class NerTrainer:
             print('New best score: ', f1_score)
             self.best_score = f1_score
             # save model
-            torch.save(self.module.model.state_dict(), join(self.save_folder, 'best.pt'))
+            torch.save(self.module.model.state_dict(), join(self.save_folder, 'best_ner.pt'))
 
         self.writer.add_scalar('precision/test', precision, self.epoch)
         self.writer.add_scalar('recall/test', recall, self.epoch)
